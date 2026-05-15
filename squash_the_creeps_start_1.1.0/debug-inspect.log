@@ -1,0 +1,29 @@
+Godot Engine v4.6.2.stable.official.71f334935 - https://godotengine.org
+
+ERROR: Condition "ret != noErr" is true. Returning: ""
+   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)
+--- frame 1 ---
+player_exists=true
+player_position=(0.0, 0.375442, 0.0) velocity=(0.0, 0.0, 0.0)
+mob_count=0
+camera_position=(0.0, 13.43503, 13.43503) basis=[X: (1.0, 0.0, 0.0), Y: (0.0, 0.707107, -0.707107), Z: (0.0, 0.707107, 0.707107)]
+mob_timer_stopped=false time_left=0.5 wait_time=0.5
+--- frame 10 ---
+player_exists=true
+player_position=(0.0, 0.430171, 0.0) velocity=(0.0, 0.0, 0.0)
+mob_count=0
+camera_position=(0.0, 13.43503, 13.43503) basis=[X: (1.0, 0.0, 0.0), Y: (0.0, 0.707107, -0.707107), Z: (0.0, 0.707107, 0.707107)]
+mob_timer_stopped=false time_left=0.35 wait_time=0.5
+--- frame 30 ---
+player_exists=true
+player_position=(0.0, 0.430171, 0.0) velocity=(0.0, 0.0, 0.0)
+mob_count=0
+camera_position=(0.0, 13.43503, 13.43503) basis=[X: (1.0, 0.0, 0.0), Y: (0.0, 0.707107, -0.707107), Z: (0.0, 0.707107, 0.707107)]
+mob_timer_stopped=false time_left=0.01666666666667 wait_time=0.5
+--- frame 60 ---
+player_exists=true
+player_position=(0.0, 0.430171, 0.0) velocity=(0.0, 0.0, 0.0)
+mob_count=1
+mob_position=(7.763144, 0.314816, 9.59379) velocity=(8.967242, 0.0, -15.60732)
+camera_position=(0.0, 13.43503, 13.43503) basis=[X: (1.0, 0.0, 0.0), Y: (0.0, 0.707107, -0.707107), Z: (0.0, 0.707107, 0.707107)]
+mob_timer_stopped=false time_left=0.01666666666667 wait_time=0.5

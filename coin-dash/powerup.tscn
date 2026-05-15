@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bv3fadeww13jq"]
+
+[ext_resource type="Script" uid="uid://cjd0l1602olbg" path="res://powerup.gd" id="1_13pq6"]
+[ext_resource type="Texture2D" uid="uid://crhathfl7kgnp" path="res://assets/pow/pow-frame-1.png" id="2_yttoi"]
+[ext_resource type="Texture2D" uid="uid://drqrwvh64n8wa" path="res://assets/pow/pow-frame-2.png" id="3_g8qv3"]
+[ext_resource type="Texture2D" uid="uid://dkokv6c7j22ai" path="res://assets/pow/pow-frame-3.png" id="4_lhhtn"]
+[ext_resource type="Texture2D" uid="uid://dcwiy1nlikqjf" path="res://assets/pow/pow-frame-4.png" id="5_k4hqp"]
+[ext_resource type="Texture2D" uid="uid://bgvqoameyfeqy" path="res://assets/pow/pow-frame-5.png" id="6_wp04m"]
+[ext_resource type="Texture2D" uid="uid://cxh08xn0d0r4e" path="res://assets/pow/pow-frame-6.png" id="7_0fviq"]
+[ext_resource type="Texture2D" uid="uid://6652kcxgise0" path="res://assets/pow/pow-frame-7.png" id="8_okhod"]
+[ext_resource type="Texture2D" uid="uid://dfcy1x2bguacb" path="res://assets/pow/pow-frame-8.png" id="9_i4oat"]
+[ext_resource type="Texture2D" uid="uid://cs1ih6j5b4xdt" path="res://assets/pow/pow-frame-9.png" id="10_1q1cv"]
+[ext_resource type="Texture2D" uid="uid://deian0jpcgwuy" path="res://assets/pow/pow-frame-10.png" id="11_3uhvo"]
+[ext_resource type="AudioStream" uid="uid://cxqxog2dqpxh3" path="res://assets/audio/Powerup.wav" id="12_yttoi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0eq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yttoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g8qv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lhhtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k4hqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wp04m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0fviq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_okhod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i4oat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1q1cv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3uhvo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc8wr"]
+radius = 20.024984
+
+[node name="Powerup" type="Area2D" unique_id=2143686780 groups=["powerups"]]
+script = ExtResource("1_13pq6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=341454197]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_x0eq0")
+autoplay = "default"
+frame_progress = 0.78861916
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98302127]
+shape = SubResource("CircleShape2D_wc8wr")
+
+[node name="PowerupSound" type="AudioStreamPlayer" parent="." unique_id=1255928797]
+stream = ExtResource("12_yttoi")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=976213564]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
