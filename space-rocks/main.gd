@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var rock_scene : PackedScene
+@export var enemy_scene : PackedScene
 var screensize = Vector2.ZERO
 
 var level = 0
@@ -52,6 +53,7 @@ func spawn_rock(size, pos=null, vel=null):
 	
 	
 func _on_rock_exploded(size, radius, pos, vel):
+	$ExplosionSound.play()
 	if size <= 1:
 		return
 	for offset in [-1, 1]:
@@ -71,15 +73,27 @@ func new_game():
 	$Player.reset()
 	await $HUD/Timer.timeout
 	playing = true
+	$Music.play()
 	
 	
 func new_level():
+	$LevelupSound.play()
 	level += 1
 	$HUD.show_message("Wave %s" % level)
 	for i in level:
 		spawn_rock(3)
+		
+	$EnemyTimer.start(randf_range(5, 10))
 
 
 func game_over():
 	playing = false
 	$HUD.game_over()
+	$Music.stop()
+
+
+func _on_enemy_timer_timeout() -> void:
+	var e = enemy_scene.instantiate()
+	add_child(e)
+	e.target = $Player
+	$EnemyTimer.start(randf_range(20, 40))

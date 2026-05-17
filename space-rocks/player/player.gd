@@ -21,8 +21,23 @@ signal dead
 var reset_pos = false
 var lives = 0: set = set_lives
 
+signal shield_changed
+@export var max_shield = 100.0
+@export var shield_regen = 5.0
+var shield = max_shield: set = set_shield
+
+
+func set_shield(value):
+	value = min(value, max_shield)
+	shield = value
+	shield_changed.emit(shield / max_shield)
+	if shield <= 0:
+		lives -= 1
+		explode()
+
 
 func set_lives(value):
+	shield = max_shield
 	lives = value
 	lives_changed.emit(lives)
 	if lives <= 0:
@@ -61,6 +76,7 @@ func change_state(new_state):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	get_input()
+	shield += shield_regen * delta
 
 
 func get_input():
@@ -70,6 +86,12 @@ func get_input():
 	if Input.is_action_pressed("thrust"):
 		thrust = transform.x * engine_power
 		rotation_dir = Input.get_axis("rotate_left", "rotate_right")
+		if not $EngineSound.playing:
+			$Exhaust.emitting = true
+			$EngineSound.play()
+		else:
+			$Exhaust.emitting = false
+			$EngineSound.stop()
 	if Input.is_action_pressed("shoot") && can_shoot:
 		shoot()
 		
@@ -82,6 +104,7 @@ func shoot():
 	var b = bullet_scene.instantiate()
 	get_tree().root.add_child(b)
 	b.start($Muzzle.global_transform)
+	$LaserSound.play()
 
 
 func _physics_process(delta):
@@ -117,9 +140,8 @@ func _on_invulnerability_timer_timeout() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("rocks"):
+		shield -= body.size * 25
 		body.explode()
-		lives -= 1
-		explode()
 
 
 func explode():
