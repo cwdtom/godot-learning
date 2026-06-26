@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Godot 4+ auto-generated cache
+.godot/
