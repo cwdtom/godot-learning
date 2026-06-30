@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="jumgle-jump"
-run/main_scene="uid://bg12ki5atp0qt"
+run/main_scene="uid://bsorvd3su4hix"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*uid://uqna1bq2i0jx"
 
 [display]
 

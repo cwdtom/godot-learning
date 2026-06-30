@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://bsorvd3su4hix"]
+
+[ext_resource type="Script" uid="uid://bknogjswyukcn" path="res://ui/title.gd" id="1_8lx1x"]
+[ext_resource type="Texture2D" uid="uid://duslqkoy4bfhl" path="res://assets/environment/back.png" id="2_k1m56"]
+[ext_resource type="Texture2D" uid="uid://d4hkghqwbrmo3" path="res://assets/environment/middle.png" id="3_wsk5t"]
+[ext_resource type="FontFile" uid="uid://twfnbg1sbk55" path="res://assets/Kenney Thick.ttf" id="4_w65fh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nve63"]
+font = ExtResource("4_w65fh")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_1n5kv"]
+font = ExtResource("4_w65fh")
+font_size = 48
+
+[sub_resource type="Animation" id="Animation_fj5cn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 283.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iy58a"]
+resource_name = "intro"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 283.5), Vector2(220, 184)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1.0717734),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a6wx"]
+_data = {
+&"RESET": SubResource("Animation_fj5cn"),
+&"intro": SubResource("Animation_iy58a")
+}
+
+[node name="Title" type="Control" unique_id=2003790737]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8lx1x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1143091010]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k1m56")
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1489314926]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 303.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wsk5t")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="." unique_id=1238567770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -40.5
+offset_right = 360.0
+offset_bottom = 40.500305
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jungle Jump"
+label_settings = SubResource("LabelSettings_nve63")
+
+[node name="Message" type="Label" parent="." unique_id=576107897]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -417.0
+offset_top = -54.0
+offset_right = 417.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Space to Play"
+label_settings = SubResource("LabelSettings_1n5kv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2138164992]
+libraries/ = SubResource("AnimationLibrary_6a6wx")
+autoplay = &"intro"

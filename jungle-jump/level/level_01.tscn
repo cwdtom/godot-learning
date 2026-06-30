@@ -1,5 +1,20 @@
 [gd_scene format=3 uid="uid://cb0xmf3h83rp"]
 
 [ext_resource type="PackedScene" uid="uid://v5cl65owcm6w" path="res://level/level_base.tscn" id="1_b2jwu"]
+[ext_resource type="PackedScene" uid="uid://b587vx7p486n8" path="res://enemy/enemy.tscn" id="2_42frl"]
+[ext_resource type="PackedScene" uid="uid://cpedyafgkhxas" path="res://item/item.tscn" id="2_bu4tk"]
 
 [node name="Level01" unique_id=2037878892 instance=ExtResource("1_b2jwu")]
+
+[node name="World" parent="." index="1" unique_id=336395346]
+layer_0/tile_data = PackedInt32Array(720910, 65536, 1, 720911, 65536, 1, 720913, 65536, 1, 720914, 65536, 1, 720912, 65536, 1, 720909, 65536, 1, 720915, 196608, 1, 720916, 196608, 1, 720917, 327680, 1, 720918, 327680, 1, 720919, 327680, 1, 720920, 327680, 1, 720921, 327680, 1, 720922, 327680, 1, 720923, 327680, 1, 720924, 327680, 1, 720925, 327680, 1, 720926, 327680, 1, 720927, 327680, 1, 720928, 327680, 1, 655392, 327680, 1, 655393, 327680, 1, 655394, 327680, 1, 655395, 327680, 1, 655396, 327680, 1, 720932, 327680, 1, 720933, 327680, 1, 720934, 327680, 1, 720935, 327680, 1, 720936, 327680, 1, 720937, 327680, 1, 720938, 327680, 1, 720939, 1310720, 4, 655404, 1310720, 4, 655407, 1441792, 4, 720944, 1441792, 4, 655405, 983040, 7, 655406, 983040, 7, 589869, 327680, 1, 589870, 327680, 1, 720945, 327680, 1, 720946, 327680, 1, 720947, 327680, 1, 720948, 327680, 1, 720949, 327680, 1, 720950, 327680, 1)
+
+[node name="Danger" parent="." index="3" unique_id=1884378554 groups=["danger"]]
+
+[node name="Item" parent="." index="5" unique_id=1088982288 instance=ExtResource("2_bu4tk")]
+position = Vector2(531, 136)
+
+[node name="Enemy" parent="." index="6" unique_id=595357615 instance=ExtResource("2_42frl")]
+position = Vector2(662, 161)
+
+[connection signal="picked_up" from="Item" to="." method="_on_item_picked_up"]

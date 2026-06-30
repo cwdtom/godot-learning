@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://oq5sfvv4xbye"]
+
+[ext_resource type="Script" uid="uid://d0pmeib82k6y0" path="res://ui/hud.gd" id="1_546lt"]
+[ext_resource type="FontFile" uid="uid://twfnbg1sbk55" path="res://assets/Kenney Thick.ttf" id="1_rbyyf"]
+[ext_resource type="Texture2D" uid="uid://ck2nj4mw3gxev" path="res://assets/heart.png" id="2_276te"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1n5kv"]
+font = ExtResource("1_rbyyf")
+font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="MarginContainer" unique_id=68795358]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+script = ExtResource("1_546lt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1496745536]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="HBoxContainer" unique_id=517313446]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_1n5kv")
+
+[node name="LifeCounter" type="HBoxContainer" parent="HBoxContainer" unique_id=91092287]
+layout_mode = 2
+
+[node name="L1" type="TextureRect" parent="HBoxContainer/LifeCounter" unique_id=1575613849]
+layout_mode = 2
+texture = ExtResource("2_276te")
+stretch_mode = 5
+
+[node name="L2" type="TextureRect" parent="HBoxContainer/LifeCounter" unique_id=2065564744]
+layout_mode = 2
+texture = ExtResource("2_276te")
+stretch_mode = 5
+
+[node name="L3" type="TextureRect" parent="HBoxContainer/LifeCounter" unique_id=1835058538]
+layout_mode = 2
+texture = ExtResource("2_276te")
+stretch_mode = 5
+
+[node name="L4" type="TextureRect" parent="HBoxContainer/LifeCounter" unique_id=1323287746]
+layout_mode = 2
+texture = ExtResource("2_276te")
+stretch_mode = 5
+
+[node name="L5" type="TextureRect" parent="HBoxContainer/LifeCounter" unique_id=1044619834]
+layout_mode = 2
+texture = ExtResource("2_276te")
+stretch_mode = 5
