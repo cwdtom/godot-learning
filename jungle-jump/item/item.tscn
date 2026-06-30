@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cpedyafgkhxas"]
+
+[ext_resource type="Script" uid="uid://bc55gccr8lylg" path="res://item/item.gd" id="1_6t40p"]
+[ext_resource type="Texture2D" uid="uid://bmbw5e0q0802h" path="res://assets/sprites/cherry.png" id="2_0yflk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1n5kv"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_qlib2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tso6w"]
+resource_name = "cherry"
+length = 1.5999999999999999
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmmfv"]
+_data = {
+&"RESET": SubResource("Animation_qlib2"),
+&"cherry": SubResource("Animation_tso6w")
+}
+
+[node name="Item" type="Area2D" unique_id=1088982288]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_6t40p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=858123863]
+texture = ExtResource("2_0yflk")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1387284205]
+shape = SubResource("CircleShape2D_1n5kv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=641601907]
+libraries/ = SubResource("AnimationLibrary_nmmfv")
+autoplay = &"cherry"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

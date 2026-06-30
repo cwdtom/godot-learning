@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_oul6g"]
 resource_name = "hurt"
-length = 0.19999999999999998
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -37,7 +37,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_g1dw6"]
 resource_name = "idle"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -134,8 +134,4 @@ shape = SubResource("RectangleShape2D_1n5kv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1869739753]
 zoom = Vector2(2.5, 2.5)
-limit_enabled = false
-limit_left = 0
 limit_top = 0
-limit_right = 1152
-limit_bottom = 648
